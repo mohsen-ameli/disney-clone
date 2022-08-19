@@ -32,7 +32,7 @@ const ImageRow = ({ title, images, id }) => {
 const Img = ({ name }) => {
   return (
     <div className="img shadow inline-block mx-4">
-      <Image src={name} layout='fill' objectFit="cover" />
+      <Image src={name} layout='fill' objectFit="cover" alt="Image Row" />
     </div>
   )
 }

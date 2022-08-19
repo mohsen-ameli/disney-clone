@@ -72,7 +72,7 @@ export default function Home({ popular, upcoming, top }) {
 const Video = ({ name }) => {
   return (
     <div className="group shadow cursor-pointer bg-gradient-to-b from-[#3a3c4a] to-[#242632] border-[3px] rounded-lg hover:scale-105 hover:ease-out duration-300 border-[#434550] hover:border-[#b1b1b3] relative flex items-center justify-center">
-      <Image className='self-center' src={`/${name}.png`} layout='fill' objectFit="cover"></Image>
+      <Image className='self-center' src={`/${name}.png`} layout='fill' objectFit="cover" alt="image"></Image>
       <video className='rounded-lg invisible group-hover:visible' autoPlay={true} muted={true} loop={true}>
         <source src={`/${name}.mp4`} type="video/mp4" />
         Your browser does not support HTML5 video.
