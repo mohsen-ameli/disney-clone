@@ -34,13 +34,13 @@ export default function Home({ popular, upcoming, top }) {
 
   for (let i = 0; i < ROW_NUM; i++) {
     let url = `https://image.tmdb.org/t/p/w500${popular[rand[i]].backdrop_path}`
-    popularUrls.push(url)
+    popularUrls.push({url: url, id: popular[rand[i]].id})
 
     let url2 = `https://image.tmdb.org/t/p/w500${upcoming[rand[i]].backdrop_path}`
-    upcomingUrls.push(url2)
+    upcomingUrls.push({url: url2, id: upcoming[rand[i]].id})
 
     let url3 = `https://image.tmdb.org/t/p/w500${top[rand[i]].backdrop_path}`
-    topUrls.push(url3)
+    topUrls.push({url: url3, id: top[rand[i]].id})
   }
 
   return (

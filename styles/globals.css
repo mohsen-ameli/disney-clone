@@ -20,7 +20,6 @@
     @apply cursor-pointer rounded-md h-[350px] w-[1364px] relative outline outline-transparent hover:outline-slate-400 outline-4 hover:ease-in-out duration-200
   }
 }
-
 .shadow {
   box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
 }

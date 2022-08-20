@@ -4,6 +4,7 @@ import {MdHome} from "react-icons/md"
 import {FaPlus, FaSearch} from "react-icons/fa"
 import {RiMovie2Line} from "react-icons/ri"
 import {TbRadio} from "react-icons/tb"
+import {GoMention} from "react-icons/go"
 import {BsList} from "react-icons/bs"
 import Link from "next/link";
 
@@ -16,42 +17,47 @@ const Navbar = () => {
             <Image className="cursor-pointer p-4" src="/logo.svg" alt="logo" width="79" height="48"></Image>
           </Link>
 
-          <ul className="hidden md:flex items-center justify-between uppercase whitespace-nowrap pt-2">
+          <ul className="flex items-center justify-between uppercase whitespace-nowrap pt-2">
             <Link href="/" >
-              <a className="nav-item ml-14 ">
-                <MdHome size={18} className="mr-4" /> Home
+              <a className="nav-item ml-8 md:ml-14 ">
+                <MdHome size={18} className="md:mr-4" /> <p className="hidden md:block">Home</p>
               </a>
             </Link>
             
             <Link href="/search">
               <a className="nav-item">
-                <FaSearch size={16} className="mr-4" /> Search
+                <FaSearch size={16} className="md:mr-4" /> <p className="hidden md:block">Search</p>
               </a>
             </Link>
             <Link href="">
               <a className="nav-item">
-                <FaPlus size={16} className="mr-4" /> Watchlist
+                <FaPlus size={16} className="md:mr-4" /> <p className="hidden md:block">Watchlist</p>
+              </a>
+            </Link>
+            {/* <Link href="">
+              <a className="nav-item">
+                <AiFillStar size={16} className="md:mr-4" /> <p className="hidden md:block">Originals</p>
               </a>
             </Link>
             <Link href="">
               <a className="nav-item">
-                <AiFillStar size={16} className="mr-4" /> Originals
+                <RiMovie2Line size={16} className="md:mr-4" /> <p className="hidden md:block">Movies</p>
               </a>
             </Link>
             <Link href="">
               <a className="nav-item">
-                <RiMovie2Line size={16} className="mr-4" /> Movies
+                <TbRadio size={16} className="md:mr-4" /> <p className="hidden md:block">Series</p>
               </a>
-            </Link>
-            <Link href="">
+            </Link> */}
+            <Link href="/credit">
               <a className="nav-item">
-                <TbRadio size={16} className="mr-4" /> Series
+                <GoMention size={16} className="md:mr-4" /> <p className="hidden md:block">Credit</p>
               </a>
             </Link>
           </ul>
         </div>
 
-        <BsList className="md:hidden block" size={30} />
+        {/* <BsList className="md:hidden block" size={30} /> */}
 
       </div>
     </div>
