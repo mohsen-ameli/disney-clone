@@ -20,10 +20,10 @@ const ImageRow = ({ title, images, id }) => {
           {images.map((img, id) => <Img key={id} src={img.url} imgId={img.id} />)}
         </div>
         
-        <div onClick={scrollLeft} className="hidden group-hover:flex flex-col items-center justify-center h-[25%] w-[5.5rem] absolute z-10 left-0 cursor-pointer">
+        <div onClick={scrollLeft} className="hidden md:group-hover:flex flex-col items-center justify-center h-[25%] w-[5.5rem] md:absolute z-10 left-0 cursor-pointer">
           <AiOutlineLeft size={40} />
         </div>
-        <div onClick={scrollRight} className="hidden group-hover:flex flex-col items-center justify-center h-[25%] w-[5.5rem] absolute z-10 right-0 cursor-pointer">
+        <div onClick={scrollRight} className="hidden md:group-hover:flex flex-col items-center justify-center h-[25%] w-[5.5rem] md:absolute z-10 right-0 cursor-pointer">
           <AiOutlineRight size={40} />
         </div>
       </div>
