@@ -12,7 +12,9 @@ const Navbar = () => {
     <div className="w-full h-[72px] bg-[#0e0b14] font-sans drop-shadow-2xl sticky top-0 z-20">
       <div className="flex items-center justify-between m-auto pt-3 px-4 text-[#f9f9f9]">
         <div className="flex pl-4">
-          <Image src="/logo.svg" alt="logo" width="79" height="48"></Image>
+          <Link href="/" >
+            <Image className="cursor-pointer p-4" src="/logo.svg" alt="logo" width="79" height="48"></Image>
+          </Link>
 
           <ul className="hidden md:flex items-center justify-between uppercase whitespace-nowrap pt-2">
             <Link href="/" >
@@ -21,7 +23,7 @@ const Navbar = () => {
               </a>
             </Link>
             
-            <Link href="">
+            <Link href="/search">
               <a className="nav-item">
                 <FaSearch size={16} className="mr-4" /> Search
               </a>

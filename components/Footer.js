@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="py-16 max-w-[1400px] mx-auto">
+    <footer className="py-16 max-w-[1400px] mx-auto px-4">
       <div className="flex items-center">
         <p className="mr-4 text-2xl">Powered By</p>
         <Image width={160} height={80} alt="TheMovieDB img"
