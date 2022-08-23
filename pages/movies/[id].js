@@ -21,8 +21,6 @@ const Detail = () => {
 
   const [saved, setSaved] = useState(false)
 
-  const { data, error } = useSWR(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`, fetcher)
-
   let getdata = async () => {
     onSnapshot(doc(db, "users", `${user?.email}`), doc => {
       doc.data()?.watchlist.map(movie => {
@@ -37,8 +35,7 @@ const Detail = () => {
     getdata()
   })
 
-  if (!data) return <div>Loading...</div>
-  if (error) return <div>An error happened</div>
+  const { data, error } = useSWR(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`, fetcher)
 
   let movie = {
     url: `https://image.tmdb.org/t/p/original${data?.backdrop_path}`,
@@ -62,6 +59,9 @@ const Detail = () => {
     }
   }
 
+  if (!data) return <div>Loading...</div>
+  if (error) return <div>An error happened</div>
+
   return (
     <>
       <Head>
@@ -69,12 +69,12 @@ const Detail = () => {
       </Head>
 
       <div className="absolute top-0 -z-10 w-full h-screen bg-gradient-to-r from-gray-900 to-transparent"></div>
-      <div className="bg-fixed -z-20">
-        <Image className="-z-20 w-full h-screen object-cover object-right-top" src={movie.url} layout="fill" alt=""></Image>
+      <div className="-z-20 absolute top-0 bg-fixed h-screen w-full">
+        <Image src={movie.url} layout="fill" objectFit="cover" objectPosition="top" alt="image"></Image>
       </div>
 
-      <div className="w-full max-h-screen">
-        <div className="max-w-[1400px] mx-auto py-16 px-4 z-10">
+      <div className="w-full max-h-screen z-10">
+        <div className="max-w-[1400px] mx-auto py-16 px-4">
           <h1 className="text-4xl">{ movie?.name }</h1>
           <h2>{ movie?.genres?.length > 0 && movie.genres[0].name }</h2>
 

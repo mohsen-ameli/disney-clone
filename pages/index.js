@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import ImageRow from '../components/ImageRow'
-import RowBig from '../components/RowBig'
 
 export const API_KEY = "90b74264545d996ccf2093b0ef1459a7"
 export const ROW_NUM = 15
@@ -44,13 +43,20 @@ export default function Home({ popular, upcoming, top }) {
   }
 
   return (
-    <div className=''>
+    <>
       <Head>
         <title>Disney+ | Home</title>
       </Head>
 
-      <RowBig />
+      {/* Big Picture */}
+      <div className="w-full h-full flex items-center justify-center relative my-6">
+        <div className="img-big shadow mx-4 flex">
+          <Image className='block w-full z-10' src="/prey_logo.png" layout='fill' objectFit="cover" alt="Image Row" />
+          <Image className='block w-full z-0' src="/prey.png" layout='fill' objectFit="cover" alt="Image Row" />
+        </div>
+      </div>
 
+      {/* Videos */}
       <div className="max-w-[1400px] mx-auto py-6 px-4">
         <div className="grid grid-cols-3 md:grid-cols-6 gap-5">
           <Video name="disney" />
@@ -62,12 +68,13 @@ export default function Home({ popular, upcoming, top }) {
         </div>
       </div>
 
+      {/* All other image rows */}
       <div className="max-w-[1400px] mx-auto">
         <ImageRow id="1" title="Recommended For You" images={popularUrls} />
         <ImageRow id="2" title="Coming To Disney+" images={upcomingUrls} />
         <ImageRow id="3"  title="Top Movies" images={topUrls} />
       </div>
-    </div>
+    </>
   )
 }
 
