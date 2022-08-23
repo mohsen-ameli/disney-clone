@@ -6,19 +6,15 @@ import { doc, updateDoc, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-const watchlist = () => {
+const Watchlist = () => {
   const [movies, setMovies] = useState([])
   let { user } = UserAuth()
   let router = useRouter()
 
-  let getdata = async () => {
+  useEffect(() => {
     onSnapshot(doc(db, "users", `${user?.email}`), doc => {
       setMovies(doc.data()?.watchlist)
     })
-  }
-
-  useEffect(() => {
-    getdata()
   })
 
   return (
@@ -47,4 +43,4 @@ const watchlist = () => {
   );
 }
  
-export default watchlist;
+export default Watchlist;
