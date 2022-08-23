@@ -51,8 +51,8 @@ export default function Home({ popular, upcoming, top }) {
 
       <RowBig />
 
-      <div className="max-w-[1400px] mx-auto p-8">
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+      <div className="max-w-[1400px] mx-auto py-6 px-4">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-5">
           <Video name="disney" />
           <Video name="pixar" />
           <Video name="marvel" />
@@ -62,7 +62,7 @@ export default function Home({ popular, upcoming, top }) {
         </div>
       </div>
 
-      <div className="max-w-[1370px] mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         <ImageRow id="1" title="Recommended For You" images={popularUrls} />
         <ImageRow id="2" title="Coming To Disney+" images={upcomingUrls} />
         <ImageRow id="3"  title="Top Movies" images={topUrls} />

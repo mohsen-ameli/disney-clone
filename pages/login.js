@@ -13,7 +13,7 @@ const Login = () => {
 
   let submit = async e => {
     e.preventDefault()
-    console.log(e.target.email.value, e.target.password.value)
+
     if (e.target.email.value && e.target.password.value) {
       try {
         await logIn(e.target.email.value, e.target.password.value)

@@ -9,19 +9,31 @@ import {BsList} from "react-icons/bs"
 import Link from "next/link";
 import { UserAuth } from "../authContext";
 import { useRouter } from "next/router";
+import { useCallback, useEffect, useState } from "react";
 
 const Navbar = () => {
   let { user, logOut } = UserAuth()
   let router = useRouter()
 
-  let logout = () => {
-    logOut()
+  const [top, setTop] = useState(true)
+
+  const onScroll = e => {
+    const { pageYOffset } = window;
+    if (pageYOffset < 0.1) {
+      setTop(true)
+    } else {
+      setTop(false)
+    }
   }
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { passive: true })
+  })
 
   return (
     <>
     {router.pathname !== "/login" && router.pathname !== "/sign-up" ? 
-      <div className="w-full h-[72px] bg-[#0e0b14] font-sans drop-shadow-2xl sticky top-0 z-20">
+      <div className={"w-full h-[72px] font-sans sticky top-0 z-20 ease-in-out duration-300 " + (top ? "bg-transparent" : "bg-[#0e0b14] nav-shadow")}>
         <div className="flex items-center justify-between m-auto pt-3 px-4 text-[#f9f9f9]">
           <div className="flex pl-4">
             <Link href="/" >
@@ -40,7 +52,7 @@ const Navbar = () => {
                   <FaSearch size={16} className="md:mr-4" /> <p className="hidden md:block">Search</p>
                 </a>
               </Link>
-              <Link href="">
+              <Link href="/watchlist">
                 <a className="nav-item">
                   <FaPlus size={16} className="md:mr-4" /> <p className="hidden md:block">Watchlist</p>
                 </a>
@@ -82,7 +94,7 @@ const Navbar = () => {
               :
               <>
                 <li className="nav-item">Account</li>
-                <li className="nav-item" onClick={() => logout()}>Log out</li>
+                <li className="nav-item" onClick={() => logOut()}>Log out</li>
               </>
               }
             </ul>

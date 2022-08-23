@@ -7,7 +7,7 @@
     @apply mx-6 pb-1 cursor-pointer text-[14px] flex items-center border-opacity-0 hover:border-opacity-100 hover:ease-linear duration-150 border-b-4 border-[#f9f9f9]
   }
   body {
-    @apply bg-[#1e2230] text-[#ececed] font-semibold select-none
+    @apply bg-[url("/background.png")] bg-fixed bg-no-repeat object-cover bg-cover text-[#ececed] font-semibold select-none
   }
   .img {
     @apply cursor-pointer rounded-md h-[144px] w-[257px] relative hover:scale-110 hover:ease-out duration-500 outline outline-transparent hover:outline-slate-200 outline-4
@@ -25,6 +25,9 @@
 }
 .shadow {
   box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+}
+.nav-shadow {
+  box-shadow: 0 0 40px black;
 }
 .scrollbar-hide {
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
