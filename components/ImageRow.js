@@ -13,10 +13,10 @@ const ImageRow = ({ title, images, id }) => {
   }
 
   return (
-    <div className="">
+    <div className="w-full px-16">
       <h1 className='pl-4 text-xl'>{title}</h1>
       <div className="group flex items-center">
-        <div id={'slider' + id} className="h-full w-full whitespace-nowrap scroll-smooth overflow-x-auto scrollbar-hide pb-8 pt-4 relative">
+        <div id={'slider' + id} className="h-full w-full pr-2 pb-8 pt-4 relative whitespace-nowrap scroll-smooth overflow-x-auto scrollbar-hide">
           {images.map((img, id) => <Img key={id} src={img.url} imgId={img.id} />)}
         </div>
         
@@ -35,7 +35,7 @@ export const Img = ({ src, imgId }) => {
   let router = useRouter()
   
   return (
-    <div onClick={() => router.push(`/movies/${imgId}`)} className="img shadow inline-block mx-4">
+    <div onClick={() => router.push(`/movies/${imgId}`)} className="img shadow inline-block mx-[10px]">
       <Image src={src} layout='fill' objectFit="cover" alt="Image Row" />
     </div>
   )

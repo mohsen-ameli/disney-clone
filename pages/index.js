@@ -69,11 +69,13 @@ export default function Home({ popular, upcoming, top }) {
       </div>
 
       {/* All other image rows */}
-      <div className="max-w-[1400px] mx-auto">
+      <>
         <ImageRow id="1" title="Recommended For You" images={popularUrls} />
         <ImageRow id="2" title="Coming To Disney+" images={upcomingUrls} />
-        <ImageRow id="3"  title="Top Movies" images={topUrls} />
-      </div>
+        <ImageRow id="3" title="Top Movies" images={topUrls} />
+        <ImageRow id="4" title="Animated Movies" images={popularUrls} />
+        <ImageRow id="5" title="Trending" images={upcomingUrls} />
+      </>
     </>
   )
 }

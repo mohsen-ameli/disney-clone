@@ -4,13 +4,13 @@
 
 @layer base {
   .nav-item {
-    @apply mx-6 pb-1 cursor-pointer text-[14px] flex items-center border-opacity-0 hover:border-opacity-100 hover:ease-linear duration-150 border-b-4 border-[#f9f9f9]
+    @apply mx-6 pb-2 cursor-pointer text-[14px] flex items-center
   }
   body {
     @apply bg-[url("/background.png")] bg-fixed bg-no-repeat object-cover bg-cover text-[#ececed] font-semibold select-none
   }
   .img {
-    @apply cursor-pointer rounded-md h-[144px] w-[257px] relative hover:scale-110 hover:ease-out duration-500 outline outline-transparent hover:outline-slate-200 outline-4
+    @apply cursor-pointer rounded-md h-[144px] w-[257px] relative hover:scale-105 hover:ease-out duration-500 outline outline-transparent hover:outline-slate-200 outline-4
   }
   .img img,
   .img-big img {
@@ -40,4 +40,17 @@
 html {
   line-height: 1.15;
   font-family: Avenir-World-for-Disney-Demi,sans-serif;
+}
+.loader {
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
