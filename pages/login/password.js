@@ -14,12 +14,12 @@ const Password = () => {
 
   const submit = async e => {
     e.preventDefault()
-    setLoading(true)
 
     if (e.target.password.value) {
       try {
         await logIn(username, e.target.password.value)
         router.push("/")
+        setLoading(true)
       } catch (error) {
         if (error.message.includes("wrong-password")) {
           setPassErr('Incorrect Password. Please reenter your password and try again. If the problem persists, try resetting your password by selecting "Forgot Password?"')
@@ -47,7 +47,7 @@ const Password = () => {
       <div className="w-full h-screen py-8 bg-[#1a1d29]">
         <div className="max-w-[1400px] mx-auto flex flex-col">
           <Link href="/">
-            <Image className="cursor-pointer p-4 justify-self-center" src="/logo.svg" alt="logo" width="172" height="104"></Image>
+            <Image priority={true} className="cursor-pointer p-4 justify-self-center" src="/logo.svg" alt="logo" width="172" height="104"></Image>
           </Link>
         
           <form className="flex flex-col items-center max-w-[60px] mx-auto caret-[#02e7f5]" onSubmit={e => submit(e)} method="POST">

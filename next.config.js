@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['image.tmdb.org', 'www.themoviedb.org']
+    domains: ['image.tmdb.org', 'www.themoviedb.org', 'images.unsplash.com']
   },
   env: {
     "API_KEY": "AIzaSyAgniLlUWBxnR7KgmyQoM6CeFFvOZal3AI",

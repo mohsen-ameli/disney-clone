@@ -4,27 +4,33 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai"
 
 const ImageRow = ({ title, images, id }) => {
   const scrollLeft = () => {
-    let slider = document.getElementById('slider' + id)
-    slider.scrollLeft = slider.scrollLeft - 1370
+    const slider = document.getElementById('slider' + id)
+    slider.scrollLeft -= 1400
   }
   const scrollRight = () => {
-    let slider = document.getElementById('slider' + id)
-    slider.scrollLeft = slider.scrollLeft + 1370
+    const slider = document.getElementById('slider' + id)
+    slider.scrollLeft += 1400
   }
 
   return (
-    <div className="w-full px-16">
-      <h1 className='pl-4 text-xl'>{title}</h1>
-      <div className="group flex items-center">
-        <div id={'slider' + id} className="h-full w-full pr-2 pb-8 pt-4 relative whitespace-nowrap scroll-smooth overflow-x-auto scrollbar-hide">
+    <div className="w-full h-full">
+      {/* title */}
+      <h1 className='pl-[78px] text-xl'>
+        { title }
+      </h1>
+
+      <div className="flex items-center relative">
+        {/* Image row */}
+        <div id={'slider' + id} className="w-full h-full px-[78px] snap-x snap-mandatory space-x-5 pb-10 pt-3 whitespace-nowrap scroll-smooth overflow-x-auto scrollbar-hide">
           {images.map((img, id) => <Img key={id} src={img.url} imgId={img.id} />)}
         </div>
         
-        <div onClick={scrollLeft} className="hidden md:group-hover:flex flex-col items-center justify-center h-[25%] w-[5.5rem] md:absolute z-10 left-0 cursor-pointer">
-          <AiOutlineLeft size={40} />
+        {/* Left and right arrows */}
+        <div onClick={scrollLeft} className="z-20 hover:backdrop-brightness-75 group h-full w-[5rem] md:absolute left-0 cursor-pointer rounded-r-2xl hover:ease-in-out duration-500">
+          <AiOutlineLeft className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" size={40} />
         </div>
-        <div onClick={scrollRight} className="hidden md:group-hover:flex flex-col items-center justify-center h-[25%] w-[5.5rem] md:absolute z-10 right-0 cursor-pointer">
-          <AiOutlineRight size={40} />
+        <div onClick={scrollRight} className="z-20 hover:backdrop-brightness-75 group h-full w-[4.5rem] md:absolute right-0 cursor-pointer rounded-l-2xl hover:ease-in-out duration-500">
+          <AiOutlineRight className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2" size={40} />
         </div>
       </div>
     </div>
@@ -35,7 +41,7 @@ export const Img = ({ src, imgId }) => {
   let router = useRouter()
   
   return (
-    <div onClick={() => router.push(`/movies/${imgId}`)} className="img shadow inline-block mx-[10px]">
+    <div onClick={() => router.push(`/movies/${imgId}`)} className="snap-center img shadow inline-block">
       <Image src={src} layout='fill' objectFit="cover" alt="Image Row" />
     </div>
   )
