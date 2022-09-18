@@ -43,7 +43,8 @@ const Navbar = () => {
   return (
     <>
     {router.pathname !== "/login" && router.pathname !== "/login/password" && router.pathname !== "/sign-up" ? 
-      <div className={"pl-1 w-full h-[72px] font-sans sticky top-0 ease-in-out duration-300 z-40 " + (top ? "bg-transparent" : "bg-[#0e0b14] nav-shadow")}>
+      <>
+      <div className={"hidden md:block pl-1 w-full h-[72px] font-sans sticky top-0 ease-in-out duration-300 z-40 " + (top ? "bg-transparent" : "bg-[#0e0b14] nav-shadow")}>
         <div className="flex items-center justify-between m-auto pt-3 px-4 text-[#f9f9f9]">
           <div className="flex pl-4">
             <Link href="/">
@@ -106,6 +107,28 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      
+      {/* mobile navbar */}
+      <div className="md:hidden fixed bottom-0 w-full h-[70px] bg-[#0e0b14e1] z-40">
+        <ul className="w-full h-full flex items-center justify-around">
+          <Link href="/">
+            <div className="p-5">
+              <MdHome size={30} className="md:mr-3" />
+            </div>
+          </Link>
+          <Link href="/search">
+            <div className="p-6">
+              <FaSearch size={25} className="md:mr-3" />
+            </div>
+          </Link>
+          <Link href="/watchlist">
+            <div className="p-5">
+              <FaPlus size={30} className="md:mr-3" />
+            </div>
+          </Link>
+        </ul>
+      </div>
+      </>
     :
     null
     }

@@ -37,7 +37,7 @@ export const getStaticProps = async () => {
 
 export default function Home({ popular, upcoming, top }) {
   const INTERVAL_TIME = 6000
-  const SLIDE_AMOUNT = 1400
+  let slide_x
   let popularUrls = []
   let upcomingUrls = []
   let topUrls = []
@@ -60,9 +60,13 @@ export default function Home({ popular, upcoming, top }) {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => scrollRight(), INTERVAL_TIME)
+    if (window.innerWidth < 750) {
+      slide_x = 300
+    } else {
+      slide_x = 700
+    }
 
-    return () => clearInterval(interval)
+    // return () => clearInterval(interval)
   })
 
   let counter = 0
@@ -72,7 +76,7 @@ export default function Home({ popular, upcoming, top }) {
     const dots = document.getElementById('slidy-bar')
     
     // sliding back
-    slider.scrollLeft -= SLIDE_AMOUNT
+    slider.scrollLeft -= slide_x
     
     // resetting
     if (counter === 0) {
@@ -88,7 +92,7 @@ export default function Home({ popular, upcoming, top }) {
   const scrollRight = () => {
     // sliding forward
     const slider = document.getElementById('slidy')
-    slider.scrollLeft += SLIDE_AMOUNT
+    slider.scrollLeft += slide_x
     const dots = document.getElementById('slidy-bar')
 
     const numElements = slider.children.length
@@ -111,7 +115,7 @@ export default function Home({ popular, upcoming, top }) {
       </Head>
 
       {/* Big Picture */}
-      <div className="w-full h-full">
+      <div className="w-full h-full relative">
         <div className="flex items-center relative">
           <div id="slidy" className="w-full h-full px-[78px] pb-10 pt-6 snap-x snap-mandatory space-x-5 whitespace-nowrap scroll-smooth overflow-x-auto scrollbar-hide">
             <Hero src={[simpsons_logo, simpsons ]} />
@@ -121,6 +125,8 @@ export default function Home({ popular, upcoming, top }) {
             <Hero src={[bear_logo, bear ]} />
             <Hero src={[rogue_logo, rogue ]} />
           </div>
+
+          {/* little balls */}
           <div id="slidy-bar" className="absolute bottom-14 right-24 flex items-center space-x-4 z-10">
             <div className="w-[6px] h-[6px] rounded-full bg-white"></div>
             <div className="w-[6px] h-[6px] rounded-full bg-gray-400"></div>
@@ -129,12 +135,12 @@ export default function Home({ popular, upcoming, top }) {
             <div className="w-[6px] h-[6px] rounded-full bg-gray-400"></div>
             <div className="w-[6px] h-[6px] rounded-full bg-gray-400"></div>
           </div>
-          
+
           {/* Left and right arrows */}
-          <div onClick={scrollLeft} className="z-20 hover:backdrop-brightness-75 group h-full w-[5rem] md:absolute left-0 cursor-pointer rounded-r-2xl hover:ease-in-out duration-500">
+          <div onClick={scrollLeft} className="z-20 hover:backdrop-brightness-75 group h-full w-[5rem] absolute left-0 cursor-pointer rounded-r-2xl hover:ease-in-out duration-500">
             <AiOutlineLeft className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" size={40} />
           </div>
-          <div onClick={scrollRight} className="z-20 hover:backdrop-brightness-75 group h-full w-[4.5rem] md:absolute right-0 cursor-pointer rounded-l-2xl hover:ease-in-out duration-500">
+          <div onClick={scrollRight} className="z-20 hover:backdrop-brightness-75 group h-full w-[4.5rem] absolute right-0 cursor-pointer rounded-l-2xl hover:ease-in-out duration-500">
             <AiOutlineRight className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2" size={40} />
           </div>
         </div>

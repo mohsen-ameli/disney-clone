@@ -3,17 +3,21 @@ import { motion } from "framer-motion";
 
 const Hero = ({ src, ...rest }) => {
   return (
-    <div className="w-[1364px] h-[350px] relative inline-block snap-center img-big shadow" {...rest}>
-      {src[0].width % src[0].height === 350 ?
-        <ImgAni className="absolute left-24 top-24">
-          <Image src={src[0]} width={350} height={175} objectFit="cover" alt="Image Row" />
-        </ImgAni>
-      :
-        <ImgAni className="absolute left-24 top-16">
-          <Image src={src[0]} objectFit="cover" alt="Image Row" />
-        </ImgAni>
-      }
-      <Image className='-z-10' src={src[1]} layout='fill' objectFit="cover" alt="Image Row" />
+    <div className="w-full h-full relative inline-block snap-center img-big shadow" style={{ fontSize: 0 }} {...rest}>
+      <div className="flex items-center relative">
+        {src[0].width % src[0].height === 350 ?
+          <ImgAni className="w-[100px] sm:w-[150px] md:w-[275px] lg:w-[350px] h-auto object-fill absolute left-10 md:left-20">
+            <Image src={src[0]} alt="Image Row" />
+          </ImgAni>
+        :
+          <ImgAni className="w-[100px] sm:w-[150px] md:w-[275px] lg:w-[350px] h-auto object-fill absolute left-10 md:left-16">
+            <Image src={src[0]} alt="Image Row" />
+          </ImgAni>
+        }
+        <div className="w-[1364px] h-[125px] sm:h-[250px] md:h-[350px] relative">
+          <Image className='-z-10' src={src[1]} layout="fill" objectFit="cover" alt="Image Row" />
+        </div>
+      </div>
     </div>
   );
 }
