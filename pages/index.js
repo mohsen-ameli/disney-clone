@@ -36,7 +36,7 @@ export const getStaticProps = async () => {
 }
 
 export default function Home({ popular, upcoming, top }) {
-  const INTERVAL_TIME = 5000
+  const INTERVAL_TIME = 6000
   let popularUrls = []
   let upcomingUrls = []
   let topUrls = []
@@ -64,13 +64,23 @@ export default function Home({ popular, upcoming, top }) {
     return () => clearInterval(interval)
   }, [])
 
+  let counter = 0
   const scrollLeft = () => {
     const slider = document.getElementById('slidy')
     slider.scrollLeft -= 1400
+
+    const numElements = slider.children.length
+    counter === 0 && (slider.scrollLeft = 10000)
+    counter - 1 >= 0 ? counter -- : counter = numElements - 1
   }
   const scrollRight = () => {
+    // sliding forward
     const slider = document.getElementById('slidy')
     slider.scrollLeft += 1400
+
+    const numElements = slider.children.length
+    counter + 1 < numElements ? counter ++ : counter = 0
+    counter === 0 && (slider.scrollLeft = 0)
   }
 
   return (
