@@ -26,7 +26,7 @@ const Password = () => {
         } else if (error.message.includes("too-many-requests")) {
           setPassErr('Access to your account has been temporarily disabled due to many failed login attempts.')
         } else {
-          console.log("first", error.message)
+          console.log("Error occured")
         }
       }
     } else {

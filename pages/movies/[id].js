@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useRouter } from 'next/router'
-import { API_KEY } from "..";
 import { BsFillPlayFill, BsCheck2 } from 'react-icons/bs'
 import { HiPlusSm } from 'react-icons/hi'
 import { MdGroups } from 'react-icons/md'
@@ -11,6 +10,7 @@ import { arrayUnion, doc, onSnapshot, updateDoc } from 'firebase/firestore'
 import useSWR from 'swr'
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import { API_KEY } from "../../components/imgList";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
@@ -18,7 +18,6 @@ const Detail = () => {
   const router = useRouter()
   const { id } = router.query
   const { user } = UserAuth()
-
   const [saved, setSaved] = useState(false)
 
   let getdata = async () => {

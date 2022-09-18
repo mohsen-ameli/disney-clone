@@ -27,7 +27,7 @@ const SignUp = () => {
         } else if (error.message.includes("email-already-in-use")) {
           setEmailErr('A user with that email already exists.')
         } else {
-          console.log("first", error.message)
+          console.log("Error occured")
         }
       }
     } else if (!e.target.email.value) {

@@ -27,7 +27,7 @@ const Login = () => {
         } else {
           router.push({ pathname: "/login/password", query: {username: e.target.email.value} })
           setLoading(true)
-          console.log("first", error.message)
+          console.log("Error occured")
         }
       }
     } else {

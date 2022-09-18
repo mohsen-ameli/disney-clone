@@ -1,11 +1,15 @@
 import { AuthContextProvider } from "../authContext";
+import Footer from "./footer";
 import Navbar from "./Navbar"
 
 const Layout = ({ children }) => {
   return (
     <AuthContextProvider>
       <Navbar />
-      {children}
+      <div className="md:pb-0 pb-14 min-h-screen">
+        {children}
+      </div>
+      <Footer />
     </AuthContextProvider>
   );
 }

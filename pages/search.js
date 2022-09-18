@@ -1,10 +1,9 @@
 import Head from "next/head";
 import { useRef, useState } from "react";
-import ImageRow, { Img } from "../components/ImageRow";
-import { API_KEY } from ".";
 import { AiOutlineClose } from "react-icons/ai"
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { API_KEY } from "../components/imgList";
 
 const Search = () => {
   const MAX_TOTAL = 20

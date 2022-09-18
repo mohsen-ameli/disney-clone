@@ -26,10 +26,10 @@ const ImageRow = ({ title, images, id }) => {
         </div>
         
         {/* Left and right arrows */}
-        <div onClick={scrollLeft} className="z-20 hover:backdrop-brightness-75 group h-full w-[5rem] absolute left-0 mb-8 cursor-pointer rounded-r-md hover:ease-in-out duration-500">
+        <div onClick={scrollLeft} className="hidden md:block z-20 hover:backdrop-brightness-75 group h-full w-[5rem] absolute left-0 mb-8 cursor-pointer rounded-r-md hover:ease-in-out duration-500">
           <AiOutlineLeft className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" size={40} />
         </div>
-        <div onClick={scrollRight} className="z-20 hover:backdrop-brightness-75 group h-full w-[4.5rem] absolute right-0 mb-8 cursor-pointer rounded-l-md hover:ease-in-out duration-500">
+        <div onClick={scrollRight} className="hidden md:block z-20 hover:backdrop-brightness-75 group h-full w-[4.5rem] absolute right-0 mb-8 cursor-pointer rounded-l-md hover:ease-in-out duration-500">
           <AiOutlineRight className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2" size={40} />
         </div>
       </div>
