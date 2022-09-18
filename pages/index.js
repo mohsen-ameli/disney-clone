@@ -1,6 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Hero from '../components/hero'
 import ImageRow from '../components/ImageRow'
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai"
+import prey_logo from "../public/prey_logo.png"
+import prey from "../public/prey.png"
+import simpsons_logo from "../public/simpsons_logo.png"
+import simpsons from "../public/simpsons.png"
+import mike_logo from "../public/mike_logo.png"
+import mike from "../public/mike.png"
+import thor_logo from "../public/thor_logo.png"
+import thor from "../public/thor.png"
+import bear_logo from "../public/bear_logo.png"
+import bear from "../public/bear.png"
+import rogue_logo from "../public/rogue_logo.png"
+import rogue from "../public/rogue.png"
+import { useEffect } from 'react'
 
 export const API_KEY = "90b74264545d996ccf2093b0ef1459a7"
 export const ROW_NUM = 15
@@ -21,6 +36,7 @@ export const getStaticProps = async () => {
 }
 
 export default function Home({ popular, upcoming, top }) {
+  const INTERVAL_TIME = 5000
   let popularUrls = []
   let upcomingUrls = []
   let topUrls = []
@@ -42,6 +58,21 @@ export default function Home({ popular, upcoming, top }) {
     topUrls.push({url: url3, id: top[rand[i]].id})
   }
 
+  useEffect(() => {
+    const interval = setInterval(() => scrollRight(), INTERVAL_TIME)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const scrollLeft = () => {
+    const slider = document.getElementById('slidy')
+    slider.scrollLeft -= 1400
+  }
+  const scrollRight = () => {
+    const slider = document.getElementById('slidy')
+    slider.scrollLeft += 1400
+  }
+
   return (
     <>
       <Head>
@@ -49,15 +80,29 @@ export default function Home({ popular, upcoming, top }) {
       </Head>
 
       {/* Big Picture */}
-      <div className="w-full h-full flex items-center justify-center relative my-6">
-        <div className="img-big shadow mx-4 flex">
-          <Image className='block w-full z-10' src="/prey_logo.png" layout='fill' objectFit="cover" alt="Image Row" />
-          <Image className='block w-full z-0' src="/prey.png" layout='fill' objectFit="cover" alt="Image Row" />
+      <div className="w-full h-full">
+        <div className="flex items-center relative">
+          <div id="slidy" className="w-full h-full px-[78px] pb-10 pt-6 snap-x snap-mandatory space-x-5 whitespace-nowrap scroll-smooth overflow-x-auto scrollbar-hide">
+            <Hero src={[simpsons_logo, simpsons ]} />
+            <Hero src={[mike_logo, mike ]} />
+            <Hero src={[prey_logo, prey ]} />
+            <Hero src={[thor_logo, thor ]} />
+            <Hero src={[bear_logo, bear ]} />
+            <Hero src={[rogue_logo, rogue ]} />
+          </div>
+          
+          {/* Left and right arrows */}
+          <div onClick={scrollLeft} className="z-20 hover:backdrop-brightness-75 group h-full w-[5rem] md:absolute left-0 cursor-pointer rounded-r-2xl hover:ease-in-out duration-500">
+            <AiOutlineLeft className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" size={40} />
+          </div>
+          <div onClick={scrollRight} className="z-20 hover:backdrop-brightness-75 group h-full w-[4.5rem] md:absolute right-0 cursor-pointer rounded-l-2xl hover:ease-in-out duration-500">
+            <AiOutlineRight className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2" size={40} />
+          </div>
         </div>
       </div>
 
       {/* Videos */}
-      <div className="max-w-[1400px] mx-auto py-6 px-4">
+      <div className="max-w-[1400px] mx-auto pb-6 pt-1 px-4">
         <div className="grid grid-cols-3 md:grid-cols-6 gap-5">
           <Video name="disney" />
           <Video name="pixar" />

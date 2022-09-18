@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRef, useState } from "react";
-import { Img } from "../components/ImageRow";
+import ImageRow, { Img } from "../components/ImageRow";
 import { API_KEY } from ".";
 import { AiOutlineClose } from "react-icons/ai"
 import { useRouter } from "next/router";
@@ -12,11 +12,13 @@ const Search = () => {
   let inputRef = useRef()
   let router = useRouter()
 
+  const [query, setQuery] = useState([])
   const [images, setImages] = useState([])
 
-  const search = async (query) => {
-    if (query !== "") {
-      let url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+  const search = async (serached) => {
+    if (serached !== "") {
+      setQuery(serached)
+      let url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${serached}&page=1&include_adult=false`
       let res = await fetch(url)
       let data = await res?.json()
   
@@ -44,18 +46,17 @@ const Search = () => {
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 py-14 px-4 md:px-20">
-        {images.length > 0
-        ?
-        images.map((img, key_) => (
-          <div key={key_} onClick={() => router.push(`/movies/${img.id}`)} className="img shadow inline-block mx-4">
-            <Image src={img.url} layout='fill' objectFit="cover" alt="Image Row" />
-          </div>
-        ))
-        :
-        <h1 className="text-xl md:text-3xl fixed">No Results were found.</h1>
-        }
-      </div>
+      {images.length > 0 ?
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 py-14 px-4 md:px-20">
+          {images.map((img, key_) => (
+            <div key={key_} onClick={() => router.push(`/movies/${img.id}`)} className="img shadow inline-block mx-4">
+              <Image src={img.url} layout='fill' objectFit="cover" alt="Image Row" />
+            </div>
+          ))}
+        </div>
+      : (query.length !== 0) &&
+        <h1 className="text-center text-xl md:text-3xl mt-28">No Results found for &quot;{query}&quot;.</h1>
+      }
     </>
   );
 }
