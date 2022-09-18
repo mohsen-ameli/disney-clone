@@ -11,7 +11,8 @@ const nextConfig = {
     "PROJECT_ID": "disney-clone-31297",
     "STORAGE_BUCKET": "disney-clone-31297.appspot.com",
     "MESSAGING_SENDER_ID": "1068486841528",
-    "APP_ID": "1:1068486841528:web:5a64607320d9adb48d504d"
+    "APP_ID": "1:1068486841528:web:5a64607320d9adb48d504d",
+    "API_KEY_THEMOVIEDB": "90b74264545d996ccf2093b0ef1459a7"
   }
 }
 
