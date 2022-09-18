@@ -28,10 +28,10 @@ const ImgAni = ({ children, ...rest }) => {
       opacity: 1,
       x: -15,
       transition: {
-        type: "spring",
-        ease: "easeInOut",
-        duration: .75,
-        delay: .5
+        type: "tween",
+        ease: "easeOut",
+        duration: .6,
+        delay: 0.4
       }
     },
   }

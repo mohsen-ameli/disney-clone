@@ -37,6 +37,7 @@ export const getStaticProps = async () => {
 
 export default function Home({ popular, upcoming, top }) {
   const INTERVAL_TIME = 6000
+  const SLIDE_AMOUNT = 1400
   let popularUrls = []
   let upcomingUrls = []
   let topUrls = []
@@ -62,25 +63,45 @@ export default function Home({ popular, upcoming, top }) {
     const interval = setInterval(() => scrollRight(), INTERVAL_TIME)
 
     return () => clearInterval(interval)
-  }, [])
+  })
 
   let counter = 0
   const scrollLeft = () => {
     const slider = document.getElementById('slidy')
-    slider.scrollLeft -= 1400
-
     const numElements = slider.children.length
-    counter === 0 && (slider.scrollLeft = 10000)
+    const dots = document.getElementById('slidy-bar')
+    
+    // sliding back
+    slider.scrollLeft -= SLIDE_AMOUNT
+    
+    // resetting
+    if (counter === 0) {
+      slider.scrollLeft = 10000
+      dots.children[0]?.classList.replace("bg-white", "bg-gray-400")
+    }
+    // incrementing
     counter - 1 >= 0 ? counter -- : counter = numElements - 1
+    
+    dots.children[counter + 1]?.classList.replace("bg-white", "bg-gray-400")
+    dots.children[counter]?.classList.replace("bg-gray-400", "bg-white")
   }
   const scrollRight = () => {
     // sliding forward
     const slider = document.getElementById('slidy')
-    slider.scrollLeft += 1400
+    slider.scrollLeft += SLIDE_AMOUNT
+    const dots = document.getElementById('slidy-bar')
 
     const numElements = slider.children.length
+    // incrementing
     counter + 1 < numElements ? counter ++ : counter = 0
-    counter === 0 && (slider.scrollLeft = 0)
+    // resetting
+    if (counter === 0) {
+      slider.scrollLeft = 0
+      dots.children[numElements - 1].classList.replace("bg-white", "bg-gray-400")
+    }
+    
+    dots.children[counter - 1]?.classList.replace("bg-white", "bg-gray-400")
+    dots.children[counter]?.classList.replace("bg-gray-400", "bg-white")
   }
 
   return (
@@ -99,6 +120,14 @@ export default function Home({ popular, upcoming, top }) {
             <Hero src={[thor_logo, thor ]} />
             <Hero src={[bear_logo, bear ]} />
             <Hero src={[rogue_logo, rogue ]} />
+          </div>
+          <div id="slidy-bar" className="absolute bottom-14 right-24 flex items-center space-x-4 z-10">
+            <div className="w-[6px] h-[6px] rounded-full bg-white"></div>
+            <div className="w-[6px] h-[6px] rounded-full bg-gray-400"></div>
+            <div className="w-[6px] h-[6px] rounded-full bg-gray-400"></div>
+            <div className="w-[6px] h-[6px] rounded-full bg-gray-400"></div>
+            <div className="w-[6px] h-[6px] rounded-full bg-gray-400"></div>
+            <div className="w-[6px] h-[6px] rounded-full bg-gray-400"></div>
           </div>
           
           {/* Left and right arrows */}
