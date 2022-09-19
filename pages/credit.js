@@ -7,7 +7,7 @@ const Credits = () => {
       <Head>
         <title>Credits</title>
       </Head>
-      <div className="w-full h-full">
+      <div className="w-full h-full mb-[23rem]">
         <div className="max-w-[1400px] mx-auto flex flex-col items-center">
           <div className="flex items-center">
             <p className="mr-4 text-2xl">Powered By</p>

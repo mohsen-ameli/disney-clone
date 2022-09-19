@@ -3,6 +3,7 @@ import { AiOutlinePlus } from "react-icons/ai"
 import { MdHome } from "react-icons/md"
 import { FaPlus, FaSearch } from "react-icons/fa"
 import { GoMention } from "react-icons/go"
+import { MdAccountCircle } from "react-icons/md"
 import Link from "next/link";
 import { UserAuth } from "../authContext";
 import { useRouter } from "next/router";
@@ -126,6 +127,44 @@ const Navbar = () => {
               <FaPlus size={30} className="md:mr-3" />
             </div>
           </Link>
+          <motion.div className="group p-5"
+            onClick={() => setOpen(!open)}
+          >
+            <MdAccountCircle size={30} className="md:mr-3" />
+            <AnimatePresence mode="wait">
+              {open &&
+                <motion.div
+                  className="w-[250px] h-fit absolute bottom-[70px] right-0 px-4 py-8 group-hover:flex flex-col origin-bottom rounded-md bg-[#131313] border-[1px] border-[#323232]"
+                  variants={accountVariant}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                >
+                  <ul>
+                    <li className="text-2xl mb-4 h-full">Account</li>
+                    <li className="py-4 text-slate-300 text-md flex items-center hover:text-white">
+                      <span className="w-fit mr-2 p-2 bg-[#262626] rounded-full">
+                        <AiOutlinePlus size={30} />
+                      </span>
+                      Add profile
+                    </li>
+                    {!user || user?.isAnonymous ?
+                    <>
+                      <li className="py-4 text-md hover:text-white text-slate-300">
+                        <Link href="/login">Log In</Link>
+                      </li>
+                      <li className="py-4 text-md hover:text-white text-slate-300">
+                        <Link href="/sign-up">Sign Up</Link>
+                      </li>
+                    </>
+                    :
+                      <li className="py-4 text-md hover:text-white text-slate-300" onClick={() => logOut()}>Log out</li>
+                    }
+                  </ul>
+                </motion.div>
+              }
+            </AnimatePresence>
+          </motion.div>
         </ul>
       </div>
       </>

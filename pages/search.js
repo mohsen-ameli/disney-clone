@@ -36,7 +36,7 @@ const Search = () => {
         <title>Search movies and shows</title>
       </Head>
 
-      <div className="group flex items-center justify-center">
+      <div className="group flex items-center justify-center mb-[23rem]">
         <input onChange={e => search(e.target.value)} ref={inputRef} placeholder="Search by title, character, or genre" type="text" autoFocus={true}
         className="w-full h-[100px] bg-[#4b4e5a] outline-none placeholder:text-lg md:placeholder:text-[42px] text-lg md:text-5xl pl-4 md:pl-16 placeholder:pl-2 placeholder:text-[#a8a9ad]" />
 
@@ -46,10 +46,10 @@ const Search = () => {
       </div>
 
       {images.length > 0 ?
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 py-14 px-4 md:px-20">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-6 py-14 px-4 md:px-20">
           {images.map((img, key_) => (
-            <div key={key_} onClick={() => router.push(`/movies/${img.id}`)} className="img shadow inline-block mx-4">
-              <Image src={img.url} layout='fill' objectFit="cover" alt="Image Row" />
+            <div key={key_} onClick={() => router.push(`/movies/${img.id}`)} className="inline-block cursor-pointer text-[0] md:img shadow">
+              <Image className="rounded-md" src={img.url} height={144} width={257} alt="Image Row" />
             </div>
           ))}
         </div>

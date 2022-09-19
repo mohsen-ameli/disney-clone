@@ -12,8 +12,8 @@ const btnVariant = {
     scaleX: 1,
     transition: { 
       type: "tween",
-      stiffness: 100,
-      mass: .5
+      stiffness: 10,
+      mass: .1
     }
   }
 }

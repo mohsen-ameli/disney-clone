@@ -27,10 +27,10 @@ const Hero = () => {
       slide_x = 700
     }
 
-    // setInterval(() => scrollRight(), INTERVAL_TIME)
+    const interval = setInterval(() => scrollRight(), INTERVAL_TIME)
 
-    // return () => clearInterval(interval)
-  })
+    return () => clearInterval(interval)
+  }, [])
 
   const scrollLeft = () => {
     const slider = document.getElementById('slidy')

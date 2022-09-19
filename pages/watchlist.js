@@ -23,20 +23,27 @@ const Watchlist = () => {
         <title>Disney+ | Watchlist</title>
       </Head>
       
-      <div className="w-full h-full py-14 pl-16">
+      <div className="w-full h-full py-12 px-8 md:px-20 mb-[13.8rem]">
         <h1 className="text-5xl">Watchlist</h1>
-        <h2 className="text-xl my-8">My Movies & Series</h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8">
-          {movies?.length > 0 ?
-            movies.map((movie, key) => (
-              <div key={key} onClick={() => router.push(`/movies/${movie.id}`)} className="img shadow inline-block">
-                <Image src={movie.img} layout='fill' objectFit="cover" alt="Image Row" />
-              </div>
-            ))
-          :
-            <h1 className="text-xl md:text-3xl fixed">You have no watchlist movies as of yet.</h1>
-          }
-        </div>
+        <h2 className="text-xl mt-6 mb-4">My Movies & Series</h2>
+        {movies?.length > 0 ? movies.map((movie, key) => (
+          <div key={key} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-6">
+            <div
+              onClick={() => router.push(`/movies/${movie.id}`)}
+              className="inline-block cursor-pointer md:img mr-auto text-[0]"
+            >
+              <Image
+                className="rounded-md"
+                src={movie.img}
+                height={144}
+                width={257}
+                alt="Image Row"
+              />
+            </div>
+          </div>
+        )) :
+          <h1 className="text-xl md:text-3xl">You have no watchlist movies as of yet.</h1>
+        }
       </div>
     </>
   );

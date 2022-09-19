@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <AuthContextProvider>
       <Navbar />
-      <div className="md:pb-0 pb-14 min-h-screen">
+      <div className="md:pb-0 pb-14">
         {children}
       </div>
       <Footer />

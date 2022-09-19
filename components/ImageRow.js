@@ -41,8 +41,8 @@ export const Img = ({ src, imgId }) => {
   let router = useRouter()
   
   return (
-    <div onClick={() => router.push(`/movies/${imgId}`)} className="snap-center img shadow inline-block">
-      <Image src={src} layout='fill' objectFit="cover" alt="Image Row" />
+    <div onClick={() => router.push(`/movies/${imgId}`)} className="snap-center inline-block cursor-pointer h-[144px] w-[257px] relative md:img shadow">
+      <Image className="rounded-md" src={src} layout='fill' objectFit="cover" alt="Image Row" />
     </div>
   )
 }

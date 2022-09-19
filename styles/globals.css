@@ -10,14 +10,10 @@
     @apply bg-[url("/background.png")] bg-fixed bg-no-repeat object-cover bg-cover text-[#ececed] font-semibold select-none
   }
   .img {
-    @apply cursor-pointer rounded-md h-[144px] w-[257px] relative hover:scale-105 hover:ease-out duration-500 outline outline-transparent hover:outline-slate-200 outline-4
-  }
-  .img img,
-  .img-big img {
-    @apply rounded-md
+    @apply rounded-md hover:scale-105 hover:ease-out duration-500 outline outline-transparent hover:outline-slate-200 outline-4
   }
   .img-big {
-    @apply outline outline-transparent hover:outline-slate-400 outline-4 hover:ease-in-out duration-200
+    @apply rounded-md outline outline-transparent hover:outline-slate-400 outline-4 hover:ease-in-out duration-200
   }
   button {
     @apply tracking-[1.5px]
