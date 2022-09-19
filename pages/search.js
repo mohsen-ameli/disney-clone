@@ -31,12 +31,12 @@ const Search = () => {
   }
 
   return (
-    <>
+    <div className={images.length === 0 && "mb-[23rem]"}>
       <Head>
         <title>Search movies and shows</title>
       </Head>
 
-      <div className="group flex items-center justify-center mb-[23rem]">
+      <div className="group flex items-center justify-center">
         <input onChange={e => search(e.target.value)} ref={inputRef} placeholder="Search by title, character, or genre" type="text" autoFocus={true}
         className="w-full h-[100px] bg-[#4b4e5a] outline-none placeholder:text-lg md:placeholder:text-[42px] text-lg md:text-5xl pl-4 md:pl-16 placeholder:pl-2 placeholder:text-[#a8a9ad]" />
 
@@ -56,7 +56,7 @@ const Search = () => {
       : (query.length !== 0) &&
         <h1 className="text-center text-xl md:text-3xl mt-28">No Results found for &quot;{query}&quot;.</h1>
       }
-    </>
+    </div>
   );
 }
  

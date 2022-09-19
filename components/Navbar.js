@@ -140,9 +140,9 @@ const Navbar = () => {
                   animate="visible"
                   exit="hidden"
                 >
-                  <ul>
-                    <li className="text-2xl mb-4 h-full">Account</li>
-                    <li className="py-4 text-slate-300 text-md flex items-center hover:text-white">
+                  <ul className="space-y-8">
+                    <li className="text-2xl mb-4">Account</li>
+                    <li className="text-slate-300 text-md flex items-center hover:text-white">
                       <span className="w-fit mr-2 p-2 bg-[#262626] rounded-full">
                         <AiOutlinePlus size={30} />
                       </span>
@@ -150,15 +150,15 @@ const Navbar = () => {
                     </li>
                     {!user || user?.isAnonymous ?
                     <>
-                      <li className="py-4 text-md hover:text-white text-slate-300">
+                      <li className="text-md hover:text-white text-slate-300">
                         <Link href="/login">Log In</Link>
                       </li>
-                      <li className="py-4 text-md hover:text-white text-slate-300">
+                      <li className="text-md hover:text-white text-slate-300">
                         <Link href="/sign-up">Sign Up</Link>
                       </li>
                     </>
                     :
-                      <li className="py-4 text-md hover:text-white text-slate-300" onClick={() => logOut()}>Log out</li>
+                      <li className="text-md hover:text-white text-slate-300" onClick={() => logOut()}>Log out</li>
                     }
                   </ul>
                 </motion.div>
