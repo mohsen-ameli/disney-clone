@@ -50,7 +50,7 @@ const Detail = () => {
     url: `https://image.tmdb.org/t/p/original${d1?.backdrop_path}`,
     name: d1?.title,
     details: d1?.overview,
-    genres: d1?.genres,
+    genres: d1?.genres.slice(0, 3),
     date: d1?.release_date,
     duration: d1?.runtime,
     director: d2?.crew?.filter(({job})=> job ==='Director')[0].name,
