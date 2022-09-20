@@ -23,7 +23,7 @@ const Watchlist = () => {
         <title>Disney+ | Watchlist</title>
       </Head>
       
-      <div className="w-full h-full py-12 px-4 md:px-20 mb-[16rem]">
+      <div className="w-full h-full py-12 px-4 md:px-20">
         <h1 className="text-5xl">Watchlist</h1>
         <h2 className="text-xl mt-6 mb-4">My Movies & Series</h2>
         <div className="relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-6">

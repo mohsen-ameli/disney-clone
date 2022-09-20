@@ -22,7 +22,7 @@ const ImageRow = ({ title, images, id }) => {
       <div className="flex items-center relative">
         {/* Image row */}
         <div id={'slider' + id} className="w-full h-full px-4 md:px-[78px] snap-x snap-mandatory space-x-5 pb-10 pt-3 whitespace-nowrap scroll-smooth overflow-x-auto scrollbar-hide">
-          {images.map((img, id) => <Img key={id} src={img.url} imgId={img.id} />)}
+          {images?.map((img, id) => <Img key={id} src={img.url} imgId={img.id} />)}
         </div>
         
         {/* Left and right arrows */}

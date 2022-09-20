@@ -31,7 +31,7 @@ const Search = () => {
   }
 
   return (
-    <div className={images.length === 0 && "mb-[23rem]"}>
+    <>
       <Head>
         <title>Search movies and shows</title>
       </Head>
@@ -56,7 +56,7 @@ const Search = () => {
       : (query.length !== 0) &&
         <h1 className="text-center text-xl md:text-3xl mt-28">No Results found for &quot;{query}&quot;.</h1>
       }
-    </div>
+    </>
   );
 }
  
