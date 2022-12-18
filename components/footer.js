@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex text-center space-x-5">
           <h1 className="text-[12px] font-thin">Privacy Policy</h1>
           <h1 className="text-[12px] font-thin">Subscriber Agreement</h1>
-          <h1 className="text-[12px] font-thin">Mohsen&apos;s Website</h1>
+          <h1 className="text-[12px] font-thin">My Website</h1>
           <h1 className="text-[12px] font-thin">Supported Devices</h1>
         </div>
         <h1 className="text-[12px] font-thin">Disney+ Clone</h1>
