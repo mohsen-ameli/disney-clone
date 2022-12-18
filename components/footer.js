@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
 
 const Footer = () => {
   return (
@@ -14,10 +14,10 @@ const Footer = () => {
           <h1 className="text-[12px] font-thin">Mohsen&apos;s Website</h1>
           <h1 className="text-[12px] font-thin">Supported Devices</h1>
         </div>
-        <h1 className="text-[12px] font-thin">@Mohsen&apos;s Disney+ Clone</h1>
+        <h1 className="text-[12px] font-thin">Disney+ Clone</h1>
       </div>
     </footer>
-  );
+  )
 }
- 
-export default Footer;
+
+export default Footer
